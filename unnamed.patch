@@ -1,0 +1,128 @@
+Index: src/main/java/com/example/hostalmanagementsystem_orm/dto/ReservationDto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/hostalmanagementsystem_orm/dto/ReservationDto.java b/src/main/java/com/example/hostalmanagementsystem_orm/dto/ReservationDto.java
+new file mode 100644
+--- /dev/null	(revision aac4d7b8bce4a405f624a7b58c732f3fe9e1f756)
++++ b/src/main/java/com/example/hostalmanagementsystem_orm/dto/ReservationDto.java	(revision aac4d7b8bce4a405f624a7b58c732f3fe9e1f756)
+@@ -0,0 +1,24 @@
++package com.example.hostalmanagementsystem_orm.dto;
++
++import lombok.AllArgsConstructor;
++import lombok.Data;
++import lombok.NoArgsConstructor;
++import lombok.ToString;
++
++import java.sql.Date;
++
++
++@ToString
++@Data
++@AllArgsConstructor
++@NoArgsConstructor
++
++public class ReservationDto implements SuperDto {
++    private String res_id;
++    private Date date;
++    private String status;
++    @ToString.Exclude
++    private StudentDto studentDto;
++    @ToString.Exclude
++    private RoomDto roomDto;
++}
+Index: src/main/java/com/example/hostalmanagementsystem_orm/dto/RoomDto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/hostalmanagementsystem_orm/dto/RoomDto.java b/src/main/java/com/example/hostalmanagementsystem_orm/dto/RoomDto.java
+new file mode 100644
+--- /dev/null	(revision aac4d7b8bce4a405f624a7b58c732f3fe9e1f756)
++++ b/src/main/java/com/example/hostalmanagementsystem_orm/dto/RoomDto.java	(revision aac4d7b8bce4a405f624a7b58c732f3fe9e1f756)
+@@ -0,0 +1,23 @@
++package com.example.hostalmanagementsystem_orm.dto;
++
++import lombok.AllArgsConstructor;
++import lombok.Data;
++import lombok.NoArgsConstructor;
++import lombok.ToString;
++
++import java.util.ArrayList;
++import java.util.List;
++
++@ToString
++@Data
++@AllArgsConstructor
++@NoArgsConstructor
++public class RoomDto implements SuperDto {
++    private String room_type_id;
++    private String type;
++    private Double key_money;
++    private Integer qty;
++    @ToString.Exclude
++    private List<ReservationDto> reservationList = new ArrayList<>();
++
++}
+Index: src/main/java/com/example/hostalmanagementsystem_orm/dto/StudentDto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/hostalmanagementsystem_orm/dto/StudentDto.java b/src/main/java/com/example/hostalmanagementsystem_orm/dto/StudentDto.java
+new file mode 100644
+--- /dev/null	(revision aac4d7b8bce4a405f624a7b58c732f3fe9e1f756)
++++ b/src/main/java/com/example/hostalmanagementsystem_orm/dto/StudentDto.java	(revision aac4d7b8bce4a405f624a7b58c732f3fe9e1f756)
+@@ -0,0 +1,25 @@
++package com.example.hostalmanagementsystem_orm.dto;
++
++import lombok.AllArgsConstructor;
++import lombok.Data;
++import lombok.NoArgsConstructor;
++import lombok.ToString;
++
++import java.sql.Date;
++import java.util.ArrayList;
++import java.util.List;
++@NoArgsConstructor
++@AllArgsConstructor
++@Data
++@ToString
++public class StudentDto implements SuperDto{
++
++    private String student_id;
++    private String name;
++    private String address;
++    private String contact_no;
++    private Date dob;
++    private String gender;
++   @ToString.Exclude
++   private final List<ReservationDto> reservationList = new ArrayList<>();
++}
+Index: src/main/java/com/example/hostalmanagementsystem_orm/dto/UserDto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/hostalmanagementsystem_orm/dto/UserDto.java b/src/main/java/com/example/hostalmanagementsystem_orm/dto/UserDto.java
+new file mode 100644
+--- /dev/null	(revision aac4d7b8bce4a405f624a7b58c732f3fe9e1f756)
++++ b/src/main/java/com/example/hostalmanagementsystem_orm/dto/UserDto.java	(revision aac4d7b8bce4a405f624a7b58c732f3fe9e1f756)
+@@ -0,0 +1,16 @@
++package com.example.hostalmanagementsystem_orm.dto;
++
++import lombok.AllArgsConstructor;
++import lombok.Data;
++import lombok.NoArgsConstructor;
++import lombok.ToString;
++
++@Data
++@AllArgsConstructor
++@NoArgsConstructor
++@ToString
++public class UserDto implements SuperDto {
++    private String id;
++    private String password;
++    private String passwordHint;
++}
