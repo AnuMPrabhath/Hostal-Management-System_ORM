@@ -1,10 +1,14 @@
 package com.example.hostalmanagementsystem_orm.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,6 +23,9 @@ public class Student {
     private String name;
     private String address;
     private String contact_no;
-    private Date date;
+    private LocalDate date;
     private String gender;
+    @ToString.Exclude
+    @OneToMany(targetEntity = Reservation.class, mappedBy = "student", cascade = CascadeType.ALL)
+    private List<Reservation> reservationList = new ArrayList<>();
 }

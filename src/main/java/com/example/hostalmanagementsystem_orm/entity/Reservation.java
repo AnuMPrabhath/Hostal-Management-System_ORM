@@ -1,8 +1,7 @@
 package com.example.hostalmanagementsystem_orm.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
@@ -19,5 +18,10 @@ public class Reservation {
     private String res_id;
     private Date date;
     private String status;
-
+    @ToString.Exclude
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Student student;
+    @ToString.Exclude
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Room room;
 }
