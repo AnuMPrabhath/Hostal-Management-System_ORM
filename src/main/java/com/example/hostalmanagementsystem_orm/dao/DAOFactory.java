@@ -1,6 +1,7 @@
 package com.example.hostalmanagementsystem_orm.dao;
 
 import com.example.hostalmanagementsystem_orm.dao.custom.impl.QueryDAOImpl;
+import com.example.hostalmanagementsystem_orm.dao.custom.impl.ReservationDAOImpl;
 import com.example.hostalmanagementsystem_orm.dao.custom.impl.RoomDAOImpl;
 import com.example.hostalmanagementsystem_orm.dao.custom.impl.StudentDAOImpl;
 
@@ -13,7 +14,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes{
-        STUDENT, QUERY, ROOM
+        STUDENT, QUERY, ROOM, RESERVATION
     }
 
     //Object creation logic for BO objects
@@ -25,6 +26,8 @@ public class DAOFactory {
                 return new QueryDAOImpl();
             case ROOM:
                 return new RoomDAOImpl();
+            case RESERVATION:
+                return new ReservationDAOImpl();
             default:
                 return null;
         }

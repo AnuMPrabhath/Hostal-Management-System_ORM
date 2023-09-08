@@ -13,7 +13,7 @@ import java.sql.Date;
 @ToString
 
 @Entity
-public class Reservation {
+public class Reservation implements SuperEntity{
     @Id
     private String res_id;
     private Date date;

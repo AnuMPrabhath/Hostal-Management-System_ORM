@@ -1,5 +1,6 @@
 package com.example.hostalmanagementsystem_orm.bo;
 
+import com.example.hostalmanagementsystem_orm.bo.custom.impl.ReservationBOImpl;
 import com.example.hostalmanagementsystem_orm.bo.custom.impl.RoomBOImpl;
 import com.example.hostalmanagementsystem_orm.bo.custom.impl.StudentBOImpl;
 
@@ -12,7 +13,7 @@ public class BOFactory {
     }
 
     public enum BOTypes{
-        STUDENT, ROOM
+        STUDENT, ROOM, RESERVATION
     }
 
     //Object creation logic for BO objects
@@ -22,6 +23,8 @@ public class BOFactory {
                 return new StudentBOImpl();
             case ROOM:
                 return new RoomBOImpl();
+            case RESERVATION:
+                return new ReservationBOImpl();
             default:
                 return null;
         }
