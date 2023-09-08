@@ -1,12 +1,19 @@
 package com.example.hostalmanagementsystem_orm.dao;
 
-import java.util.ArrayList;
+import com.example.hostalmanagementsystem_orm.entity.SuperEntity;
+import org.hibernate.Session;
+
 import java.util.List;
 
-public interface CrudDAO<T> extends SuperDAO{
-    ArrayList<T> getAll();
-    boolean add(T dto);
-    boolean update(T dto);
-    boolean delete(String id);
-    List<T> search(String id);
+public interface CrudDAO<T extends SuperEntity> extends SuperDAO{
+    Boolean save(T entity, Session session);
+
+    Boolean update(T entity, Session session);
+
+    Boolean delete(String id ,Session session);
+
+    T view(String id,Session session);
+
+    List<T> getAll(Session session);
+    String getLastId(Session session);
 }

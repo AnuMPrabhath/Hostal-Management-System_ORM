@@ -12,5 +12,4 @@ import lombok.ToString;
 public class UserDto implements SuperDto {
     private String id;
     private String password;
-    private String passwordHint;
 }

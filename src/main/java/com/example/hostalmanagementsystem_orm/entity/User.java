@@ -11,7 +11,7 @@ import lombok.*;
 @ToString
 
 @Entity
-public class User {
+public class User implements SuperEntity{
     @Id
     private String id;
     private String password;
