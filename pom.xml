@@ -6,7 +6,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>Hostel-Management-System_ORM</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Hostal-Management-System_ORM</name>
 
     <properties>
