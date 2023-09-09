@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -48,7 +49,7 @@ public class LoginPageFormController {
     }
 
     public void btnLoginOnAction(ActionEvent actionEvent) {
-        if (checkRegEx()) {
+  //      if (checkRegEx()) {
             try {
                 UserDto dto = new UserDto(txtId.getText(), txtPassword.getText());
                 UserDto user = userBO.view(dto.getId());
@@ -61,9 +62,9 @@ public class LoginPageFormController {
             } catch (RuntimeException | IOException exception) {
                 new Alert(Alert.AlertType.INFORMATION, exception.getMessage()).show();
             }
-        } else {
-            new Alert(Alert.AlertType.INFORMATION, "Invalid Input!").show();
-        }
+   //     } else {
+      //      new Alert(Alert.AlertType.INFORMATION, "Invalid Input!").show();
+  //      }
     }
 
     private boolean checkRegEx() throws RuntimeException {
@@ -79,6 +80,7 @@ public class LoginPageFormController {
         stage.requestFocus();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SignUpPage.fxml"))));
         stage.setTitle("Signup");
+        stage.getIcons().add(new Image("assets/hostel-logo.jpg"));
         stage.showAndWait();
         login.setFocusTraversable(true);
         login.setDisable(false);

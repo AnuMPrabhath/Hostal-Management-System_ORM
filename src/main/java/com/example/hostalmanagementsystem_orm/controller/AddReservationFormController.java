@@ -188,5 +188,6 @@ public class AddReservationFormController implements Initializable {
 
     private void setReservationId() {
         lblReservationId.setText(reservationBO.getLastId());
+
     }
 }

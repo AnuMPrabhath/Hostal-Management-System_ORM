@@ -37,15 +37,15 @@ public class SignupPageController {
         Stage window = (Stage) pane.getScene().getWindow();
         try {
             window.setAlwaysOnTop(false);
-            if (checkRegEx()) {
+           /* if (checkRegEx()) {*/
                 UserDto userDto = new UserDto(txtUsername.getText(), txtPassword.getText());
                 userBO.save(userDto);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Registration Success! ");
                 alert.showAndWait();
                 clear();
-            } else {
+            /*} else {
                 new Alert(Alert.AlertType.INFORMATION, "Pattern not match!").showAndWait();
-            }
+            }*/
         } catch (RuntimeException e) {
             new Alert(Alert.AlertType.INFORMATION, e.getMessage()).showAndWait();
         }

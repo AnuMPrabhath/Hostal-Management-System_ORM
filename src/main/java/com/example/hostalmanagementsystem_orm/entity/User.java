@@ -1,8 +1,9 @@
 package com.example.hostalmanagementsystem_orm.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Getter
 @Setter
