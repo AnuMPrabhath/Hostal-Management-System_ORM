@@ -1,5 +1,6 @@
 package com.example.hostalmanagementsystem_orm.controller;
 
+import com.example.hostalmanagementsystem_orm.bo.BOFactory;
 import com.example.hostalmanagementsystem_orm.bo.custom.ReservationBO;
 import com.example.hostalmanagementsystem_orm.bo.custom.RoomBO;
 import com.example.hostalmanagementsystem_orm.bo.custom.StudentBO;
@@ -161,6 +162,10 @@ public class AddReservationFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        reservationBO = (ReservationBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RESERVATION);
+        roomBO =  (RoomBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOM);
+        studentBO = (StudentBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
+
         setReservationId();
         setStudentList();
         setRoomList();
